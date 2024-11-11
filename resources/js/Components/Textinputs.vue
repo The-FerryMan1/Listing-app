@@ -1,0 +1,37 @@
+<script setup>
+
+const model = defineModel({
+    required: true
+});
+
+defineProps({
+    type:{
+        type: String,
+        default: 'text',
+    },
+    name:{
+        type: String,
+        default: ""
+    },
+    placeholder:{
+        type: String,
+        default: ""
+    },
+    icon: String,
+    iconStyle: {
+        type: String,
+        default: 'regular'
+    }
+
+})
+</script>
+
+
+<template>
+    <div class="w-[70%]">
+        <i class="mx-2" :class="`fa-${iconStyle} fa-${icon}`"></i>
+        <label :for="name" class="text-md " >{{ name }}</label>
+        <input class="w-full rounded-md p-2 text-black my-2 border-2" :type="type" name="" :id="name" v-model="model" :placeholder="placeholder">
+        
+    </div>
+</template>
